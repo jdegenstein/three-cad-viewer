@@ -87,7 +87,12 @@ class OrientationMarker {
     const material = new THREE.MeshBasicMaterial({ color: 0xa0a0a0 });
     const sphere = new THREE.Mesh(geometry, material);
     this.scene.add(sphere);
-
+    const fontloader = new THREE.FontLoader();
+    fontloader.load('examples/fonts/helvetiker_regular.typeface.json', function ( font ) {
+      const textlabel = new THREE.TextGeometry('XYZ',{font,8});
+    } );
+    this.scene.add(textlabel);
+  
     this.scene.background = null;
   }
 
